@@ -1,12 +1,18 @@
   
 import React from "react";
 import HTMLText from "../HTMLText/HTMLText";
+import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
+
 
 const DynamicArticle = (props) => {
+  
   return (
+    
     <article>
       <header>
-        <h1>{props.article.title}</h1>
+        <h3><Link to={`/articlelist`}>Back</Link></h3>
+        <h1> {props.article.title}</h1>
+
         <address>
           by {props.article.author} (
           <a href={props.article.authorEmail}>{props.article.authorEmail}</a>)
@@ -15,7 +21,10 @@ const DynamicArticle = (props) => {
         <time dateTime={props.article.timeStamp}>{props.article.displayDate}</time>
       </header>
       <HTMLText text={props.article.text} />
+     
     </article>
+    
+   
   );
 };
 
